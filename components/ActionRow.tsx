@@ -2,7 +2,7 @@ import { Text, TouchableOpacity } from 'react-native'
 import React, { FC } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import { NavigationProp } from '../screens/HomeScreen'
+import { NavigationProp } from '../screens/DemoScreen'
 
 
 
