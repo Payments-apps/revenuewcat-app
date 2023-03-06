@@ -7,17 +7,20 @@ import ActionRow from '../components/ActionRow'
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackParamList } from '../App'
+import useRevenewCat from '../hooks/useRevenewCat'
 
 export type NavigationProp = NativeStackNavigationProp<
   RootStackParamList,
   "Home">;
 const HomeScreen = () => {
   const navigation = useNavigation<NavigationProp>();
+  const { isProMember } = useRevenewCat();
+
   return (
     <SafeAreaView className='flex-1 bg-gray-100 relative' >
       <ScrollView>
         <TouchableOpacity onPress={() => navigation.navigate('Paywall')} className='absolute z-50 top5 right-10 items-center' >
-          <Text className='text-center text-[#E5962D] font-bold' >UPGRADE</Text>
+          <Text className='text-center text-[#E5962D] font-bold' >{isProMember ? "PRO" : "UPGRADE"}</Text>
           <Ionicons name='person-circle' size={33} color='#E5962D' />
         </TouchableOpacity>
         <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3H0J1GfxD7x1UIlCj5OCJI6fR3DKUgYghQQ&usqp=CAU' }}
