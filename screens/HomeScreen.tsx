@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons'
@@ -20,8 +19,8 @@ const HomeScreen = () => {
     <SafeAreaView className='flex-1 bg-gray-100 relative' >
       <ScrollView>
         <TouchableOpacity onPress={() => navigation.navigate('Paywall')} className='absolute z-50 top5 right-10 items-center' >
-          <Text className='text-center text-[#E5962D] font-bold' >{isProMember ? "PRO" : "UPGRADE"}</Text>
           <Ionicons name='person-circle' size={33} color='#E5962D' />
+          <Text className='text-center text-[#E5962D] font-bold' >{isProMember ? "PRO" : "UPGRADE"}</Text>
         </TouchableOpacity>
         <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3H0J1GfxD7x1UIlCj5OCJI6fR3DKUgYghQQ&usqp=CAU' }}
           className=" w-full h-64 flex-1 align-bottom"

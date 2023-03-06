@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View } from 'react-native'
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import { NavigationProp } from '../screens/DemoScreen'
@@ -11,12 +11,13 @@ interface Props { title: string, screen: any, color: string, requiresPro?: boole
 const ActionRow: FC<Props> = ({ title, screen, color, requiresPro, icon, vertical }) => {
   const navigation = useNavigation<NavigationProp>()
   const { isProMember } = useRevenewCat();
+
   const lockedForProMembers = requiresPro && !isProMember;
 
   return (
     <TouchableOpacity
       onPress={() => lockedForProMembers ? navigation.navigate('Paywall') : navigation.navigate(screen)}
-      className={`flex flex-1 justify-center items-center py-6 m-2 rounded-lg space-x-2 ${vertical ? 'flex-col' : 'flex-row'}`} style={{ backgroundColor: lockedForProMembers ? 'gray' : color }}>
+      className={`flex flex-1 justify-center items-center py-6 m-2 rounded-lg space-x-2 ${vertical ? 'flex-col' : 'flex-row'}`} style={{ backgroundColor: requiresPro && lockedForProMembers ? 'gray' : color }}>
       {lockedForProMembers
         ?
         <View className='absolute top-0 right-0 rotate-12 items-center'>

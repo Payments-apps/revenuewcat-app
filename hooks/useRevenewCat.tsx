@@ -13,7 +13,7 @@ This is for demo purposes */
 // }
 
 const typesOfMembership = {
-  monthly: 'Pro offering',
+  monthly: 'pro',
   yearly: 'yearly'
 }
 
@@ -47,7 +47,6 @@ const useRevenewCat = () => {
         console.log(error)
         console.error
       }
-
     })()
   }, [])
 
