@@ -1,4 +1,4 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { Image, LogBox, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -14,6 +14,8 @@ export type NavigationProp = NativeStackNavigationProp<
 const HomeScreen = () => {
   const navigation = useNavigation<NavigationProp>();
   const { isProMember } = useRevenewCat();
+
+  // console.log('HomeScreen, isProMember ', isProMember)
 
   return (
     <SafeAreaView className='flex-1 bg-gray-100 relative' >

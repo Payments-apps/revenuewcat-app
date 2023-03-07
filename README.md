@@ -6,6 +6,10 @@ Usefull websites:
 - [nativewind](https://www.nativewind.dev/quick-starts/expo)
 - [expo.dev...](https://docs.expo.dev/build/introduction/)
 
+Bugs:
+
+- The one I choose to be current in revenuewcat, is showing in the app. The other is undefined.
+
 Install app in iPhone device
 
 - [🍎 Open this link on your iOS devices (or scan the QR code) to install the app:](https://expo.dev/accounts/footios/projects/revenuewcat-app/builds/009b4ac0-22e4-4928-8040-79ecd877d915)

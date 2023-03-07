@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity, ActivityIndicator, Alert } from 'react-native'
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
@@ -29,7 +29,7 @@ const PaywallScreen = () => {
     try {
       const purchaseInfo = await Purchases.purchasePackage(currentOffering.monthly);
 
-      console.log('Monthly sub urchases >>', purchaseInfo.customerInfo.entitlements.active);
+      console.log('Monthly sub purchases >>', purchaseInfo.customerInfo.entitlements.active);
 
       if (purchaseInfo.customerInfo.entitlements.active.pro) {
         navigation.goBack()
@@ -38,6 +38,39 @@ const PaywallScreen = () => {
       console.log(error)
     }
   }
+
+  const handlAnnualPurchase = async () => {
+    if (!currentOffering.annual) return;
+
+    try {
+      const purchaseInfo = await Purchases.purchasePackage(currentOffering.annual);
+
+      console.log('Annual sub purchases >>', purchaseInfo.customerInfo.entitlements.active);
+
+      if (purchaseInfo.customerInfo.entitlements.active.pro) {
+        navigation.goBack()
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const restorePurchases = async () => {
+
+    try {
+      const purchaseInfo = await Purchases.restorePurchases();
+
+      console.log('Monthly sub purchases >>', purchaseInfo.activeSubscriptions.length > 0);
+
+      if (purchaseInfo.activeSubscriptions.length > 0)
+        Alert.alert('Success', 'Your purchase has been restored!')
+      else
+        Alert.alert('Error', 'No purchase to restore!')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
 
   return (
@@ -70,13 +103,34 @@ const PaywallScreen = () => {
 
       {/* Monthly Subscribe */}
       <TouchableOpacity onPress={handlMonthlyPurchase} className='items-center px-10 py-5 bg-[#E5962D] mx-10 rounded-full' >
-        <Text className='text-white text-md text-md'>Free trial for one week...</Text>
-        <Text className='text-white text-md text-md'>{currentOffering.monthly?.product.priceString}/month</Text>
+        <Text className='text-white text-md'>Free trial for one week...</Text>
+        <Text className='text-white text-md'>2,99/month</Text>
+        {/* <Text className='text-white text-md'>{currentOffering.monthly?.product.priceString}/month</Text> */}
       </TouchableOpacity>
       {/* Annual Subscribe */}
+      {currentOffering.annual
+        ?
+        <TouchableOpacity
+          onPress={handlAnnualPurchase}
+          className='items-center px-10 py-5 border-2 border-[#E5962D] mx-10 rounded-full mt-2' >
+          {/* How match you save, if you pay annual */}
+          <Text className='text-white uppercase text-md text-center font-bold mb-1'>
+            {
+              ((1 - 9.99 / (2.99 * 12) * 100).toPrecision(2))
+            } % Annually
+          </Text>
+          <Text className='text-white text-md text-md'>{currentOffering.annual?.product.priceString}/year</Text>
+        </TouchableOpacity>
 
+        : null
+      }
       {/* Restore Purchases */}
-
+      <TouchableOpacity
+        onPress={restorePurchases}
+        className='items-center px-10 py-5 border-2 border-[#E5962D] mx-10 rounded-full mt-2' >
+        {/* How match you save, if you pay annual */}
+        <Text className='text-white text-md text-md'> Restore Purchases</Text>
+      </TouchableOpacity>
     </ScrollView>
   )
 }

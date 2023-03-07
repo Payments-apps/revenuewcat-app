@@ -14,7 +14,7 @@ This is for demo purposes */
 
 const typesOfMembership = {
   monthly: 'pro',
-  yearly: 'yearly'
+  yearly: 'proYearly'
 }
 
 const useRevenewCat = () => {
@@ -24,9 +24,13 @@ const useRevenewCat = () => {
   const [currentOffering, setCurrentOffering] = useState<PurchasesOffering | null>(null);
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo | null>(null);
 
+
   const isProMember =
     customerInfo?.activeSubscriptions.includes(typesOfMembership.monthly) ||
     customerInfo?.activeSubscriptions.includes(typesOfMembership.yearly);
+
+  // console.log(customerInfo?.entitlements.active)
+  // const isProMember = customerInfo?.entitlements.active.pro
 
   useEffect(() => {
     (async () => {
@@ -40,6 +44,8 @@ const useRevenewCat = () => {
 
         const offerings = Purchases.getOfferings();
         const customerInfo = Purchases.getCustomerInfo();
+
+        // console.log((await offerings).current)
 
         setCurrentOffering((await offerings).current);
         setCustomerInfo(await customerInfo);
@@ -57,7 +63,7 @@ const useRevenewCat = () => {
     }
     Purchases.addCustomerInfoUpdateListener(customerInfoUpdated)
 
-    // Tip: do this to check the type of a
+    // Tip: do this to check the type of `a`
     // Purchases.addCustomerInfoUpdateListener((a) => customerInfoUpdated)
   }, [])
 
