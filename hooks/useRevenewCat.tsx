@@ -24,12 +24,12 @@ const useRevenewCat = () => {
   const [currentOffering, setCurrentOffering] = useState<PurchasesOffering | null>(null);
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo | null>(null);
 
-
+  // console.log(currentOffering)
   const isProMember =
     customerInfo?.activeSubscriptions.includes(typesOfMembership.monthly) ||
     customerInfo?.activeSubscriptions.includes(typesOfMembership.yearly);
 
-  // console.log(customerInfo?.entitlements.active)
+  // console.log(customerInfo?.entitlements.active.pro)
   // const isProMember = customerInfo?.entitlements.active.pro
 
   useEffect(() => {

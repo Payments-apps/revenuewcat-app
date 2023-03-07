@@ -15,7 +15,7 @@ const HomeScreen = () => {
   const navigation = useNavigation<NavigationProp>();
   const { isProMember } = useRevenewCat();
 
-  // console.log('HomeScreen, isProMember ', isProMember)
+  console.log('HomeScreen, isProMember ', isProMember)
 
   return (
     <SafeAreaView className='flex-1 bg-gray-100 relative' >

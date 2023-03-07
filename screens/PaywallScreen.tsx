@@ -71,8 +71,6 @@ const PaywallScreen = () => {
     }
   }
 
-
-
   return (
     <ScrollView className=' bg-[#1A2F44] flex-1'>
       <Text className='text-2xl text-center uppercase text-white'>
@@ -103,6 +101,9 @@ const PaywallScreen = () => {
 
       {/* Monthly Subscribe */}
       <TouchableOpacity onPress={handlMonthlyPurchase} className='items-center px-10 py-5 bg-[#E5962D] mx-10 rounded-full' >
+        <Text className='text-white text-md'>
+          START A {currentOffering.monthly?.product.introPrice?.periodNumberOfUnits} x {currentOffering.monthly?.product.introPrice?.periodUnit} FREE TRIAL
+        </Text>
         <Text className='text-white text-md'>Free trial for one week...</Text>
         <Text className='text-white text-md'>2,99/month</Text>
         {/* <Text className='text-white text-md'>{currentOffering.monthly?.product.priceString}/month</Text> */}

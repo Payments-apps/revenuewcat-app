@@ -12,7 +12,7 @@ Bugs:
 
 Install app in iPhone device
 
-- [🍎 Open this link on your iOS devices (or scan the QR code) to install the app:](https://expo.dev/accounts/footios/projects/revenuewcat-app/builds/009b4ac0-22e4-4928-8040-79ecd877d915)
+- [🍎 Open this link on your iOS devices (or scan the QR code) to install the app:](https://expo.dev/accounts/username/projects/revenuewcat-app/builds/009b4ac0-22e4-4928-8040-79ecd877d915)
 - then run `npx expo start --dev-client`
 
 Setups steps:
@@ -58,15 +58,15 @@ Later, authenticate with Apple and choose your desired Apple Team (if your Apple
 - Under DOWNLOADED PROFILE, press Register for Development, and then Install (up right corner)
 - Go to settings again to Privacy & Services (for iOS 16) and enable Developer Mode.
 - create a developer build for the app by running `eas build --profile development --platform ios`
-- What would you like your iOS bundle identifier to be? › com.footios.revenuewcatapp
+- What would you like your iOS bundle identifier to be? › com.username.revenuewcatapp
 - Do you want to log in to your Apple account? … yes
 - › Log in to your Apple Developer account to continue
-- ✔ Apple ID: … freedomzone@icloud.com
-- › Restoring session /Users/footios/.app-store/auth/freedomzone@icloud.com/cookie
-- › Team Fotios Tsakiris (RTSV7MD9P2)
-- › Provider Fotios Tsakiris (123921446)
+- ✔ Apple ID: … emailaddress@icloud.com
+- › Restoring session /Users/username/.app-store/auth/emailaddress@icloud.com/cookie
+- › Team Fotios Tsakiris (jkj)
+- › Provider Fotios Tsakiris (876)
 - ✔ Logged in Local session
-- ✔ Bundle identifier registered com.footios.revenuewcatapp
+- ✔ Bundle identifier registered com.username.revenuewcatapp
 - ✔ Synced capabilities: Enabled: Push Notifications
 - ✔ Synced capability identifiers: No updates
 - ✔ Fetched Apple distribution certificates
@@ -74,8 +74,8 @@ Later, authenticate with Apple and choose your desired Apple Team (if your Apple
 - ✔ Created Apple distribution certificate
 - ✔ Created distribution certificate
 - ✔ Select devices for the ad hoc build: › 67768a3111e27186e63854eb138d2667cad655c1 (iPhone 7)
-- ✔ Created new profile: \*[expo] com.footios.revenuewcatapp AdHoc 1677852659469
-- All credentials are ready to build @footios/revenuewcat-app (com.footios.revenuewcatapp)
+- ✔ Created new profile: \*[expo] com.username.revenuewcatapp AdHoc 1677852659469
+- All credentials are ready to build @username/revenuewcat-app (com.username.revenuewcatapp)
 - ✔ Would you like to set up Push Notifications for your project? › No
 - Compressing project files and uploading to EAS Build. Learn more
 - ✔ Uploaded to EAS
@@ -100,3 +100,7 @@ VS Code:
 
 - create a hook: useRevenuewCat ...
 - Get the key from revenuewcat/API keys
+
+Free trial:
+
+- app store connect/subscriptions/pro-subscription/pro-monthly/View all subscription pricing/ Introductory offers
